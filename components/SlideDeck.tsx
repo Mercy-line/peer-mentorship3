@@ -33,6 +33,18 @@ export const SlideDeck: React.FC = () => {
   const progressPercent = ((currentIndex + 1) / slidesData.length) * 100;
   const hasBg = !!(activeSlide.bgImage || activeSlide.bgVideo);
 
+  const navItems = [
+    { label: "Home", index: 0 },
+    { label: "ICT", index: 1 },
+    { label: "Critical Thinking", index: 2 },
+    { label: "Job Application", index: 3 },
+    { label: "Research", index: 4 },
+    { label: "Scholarship", index: 5 },
+    { label: "Public Speaking", index: 6 },
+    { label: "Human Centered Design", index: 7 },
+    { label: "Wrap", index: 8 },
+  ];
+
   return (
     <div
       id="stage"
@@ -42,6 +54,36 @@ export const SlideDeck: React.FC = () => {
         "--accent2": accent2,
       } as React.CSSProperties}
     >
+      {/* Floating Track Navbar */}
+      <div className="fixed top-[20px] left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-[960px] pointer-events-auto">
+        <div
+          className={`flex items-center justify-between gap-[6px] px-[16px] py-[8px] rounded-full border shadow-lg backdrop-blur-md transition-all duration-500 overflow-x-auto scrollbar-none ${
+            hasBg
+              ? "bg-[#12102a]/60 border-white/10 text-white"
+              : "bg-white/70 border-black/10 text-[#12102a]"
+          }`}
+        >
+          {navItems.map((item) => {
+            const isCurrent = item.index === currentIndex;
+            return (
+              <button
+                key={item.index}
+                onClick={() => goToSlide(item.index)}
+                className={`font-mono text-[11px] font-bold tracking-[0.05em] uppercase px-[12px] py-[6px] rounded-full transition-all cursor-pointer whitespace-nowrap ${
+                  isCurrent
+                    ? "bg-[#0ea5e9] text-white shadow-md"
+                    : hasBg
+                    ? "text-[#a0aec0] hover:text-white hover:bg-white/5"
+                    : "text-[#475569] hover:text-[#12102a] hover:bg-black/5"
+                }`}
+              >
+                {item.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       {/* Background dynamic glow */}
       <div className="bg-glow absolute inset-0 z-0 opacity-90" />
 
@@ -65,15 +107,39 @@ export const SlideDeck: React.FC = () => {
           const isActive = index === currentIndex;
           if (slide.type === "title") {
             return (
-              <TitleSlide key={slide.id} slide={slide} isActive={isActive} />
+              <TitleSlide
+                key={slide.id}
+                slide={slide}
+                isActive={isActive}
+                prevSlide={prevSlide}
+                nextSlide={nextSlide}
+                currentIndex={currentIndex}
+                totalSlides={slidesData.length}
+              />
             );
           } else if (slide.type === "content") {
             return (
-              <ContentSlide key={slide.id} slide={slide} isActive={isActive} />
+              <ContentSlide
+                key={slide.id}
+                slide={slide}
+                isActive={isActive}
+                prevSlide={prevSlide}
+                nextSlide={nextSlide}
+                currentIndex={currentIndex}
+                totalSlides={slidesData.length}
+              />
             );
           } else {
             return (
-              <ClosingSlide key={slide.id} slide={slide} isActive={isActive} />
+              <ClosingSlide
+                key={slide.id}
+                slide={slide}
+                isActive={isActive}
+                prevSlide={prevSlide}
+                nextSlide={nextSlide}
+                currentIndex={currentIndex}
+                totalSlides={slidesData.length}
+              />
             );
           }
         })}
@@ -86,79 +152,6 @@ export const SlideDeck: React.FC = () => {
         onSelect={goToSlide}
         accent={accent}
         hasBg={hasBg}
-      />
-
-      {/* Bottom Nav hint */}
-      <div
-        className={`navhint absolute bottom-[26px] left-[6vw] sm:left-[9vw] z-50 font-mono text-[11px] tracking-[0.08em] uppercase opacity-70 pointer-events-none transition-colors duration-500 ${
-          hasBg ? "text-[#9a93c9]" : "text-[#475569]"
-        }`}
-      >
-        ← → to navigate · click sides
-      </div>
-
-      {/* Dynamic Navigation Controller (Back Arrow, Counter, Next Arrow) */}
-      <div className="absolute bottom-[26px] right-[6vw] sm:right-[9vw] z-50 flex items-center gap-[14px]">
-        {/* Back Button */}
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            prevSlide();
-          }}
-          disabled={currentIndex === 0}
-          className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border transition-all active:scale-90 shadow-lg cursor-pointer ${
-            hasBg
-              ? "border-line bg-[#1a1640]/60 text-ink hover:bg-[#1a1640]/90 hover:text-white"
-              : "border-[#cbd5e1] bg-[#f8fafc]/80 text-[#12102a] hover:bg-[#e2e8f0] hover:text-[#0ea5e9]"
-          } ${
-            currentIndex === 0 ? "opacity-30 cursor-not-allowed pointer-events-none" : ""
-          }`}
-          aria-label="Previous Slide"
-        >
-          <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.8">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-
-        {/* Counter */}
-        <div
-          className={`font-mono text-[12px] tracking-[0.05em] select-none min-w-[50px] text-center transition-colors duration-500 ${
-            hasBg ? "text-[#9a93c9]" : "text-[#475569]"
-          }`}
-        >
-          <b className={hasBg ? "text-[#f4f2ff]" : "text-[#12102a]"}>{currentIndex + 1}</b> / {slidesData.length}
-        </div>
-
-        {/* Next Button */}
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            nextSlide();
-          }}
-          disabled={currentIndex === slidesData.length - 1}
-          className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border transition-all active:scale-90 shadow-lg cursor-pointer ${
-            hasBg
-              ? "border-line bg-[#1a1640]/60 text-ink hover:bg-[#1a1640]/90 hover:text-white"
-              : "border-[#cbd5e1] bg-[#f8fafc]/80 text-[#12102a] hover:bg-[#e2e8f0] hover:text-[#0ea5e9]"
-          } ${
-            currentIndex === slidesData.length - 1 ? "opacity-30 cursor-not-allowed pointer-events-none" : ""
-          }`}
-          aria-label="Next Slide"
-        >
-          <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.8">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-      </div>
-
-      {/* Click zones */}
-      <div
-        className="absolute inset-y-0 left-0 w-[38%] z-40 cursor-[w-resize]"
-        onClick={prevSlide}
-      />
-      <div
-        className="absolute inset-y-0 right-0 w-[38%] z-40 cursor-[e-resize]"
-        onClick={nextSlide}
       />
     </div>
   );
