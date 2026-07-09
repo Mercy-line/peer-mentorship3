@@ -28,6 +28,7 @@ export const slidesData: SlideData[] = [
     accent2: "#78350f",
     eyebrow: "Critical Thinking in Using AI · Dr C",
     title: "Think Before You Prompt",
+    contentImages: ["/think.jpeg"],
     who: "The art of evaluating reasoning — <b>yours and everyone else's</b>",
     keywords: [
       { text: "Paul-Elder Framework", strong: true },
@@ -129,6 +130,7 @@ export const slidesData: SlideData[] = [
     eyebrow: "Public Speaking in Practice",
     title: "Show, Don't Just Tell",
     bgImage: "/backgrounds/public_speaking.jpg",
+    contentImages: ["/props-removebg-preview.png"],
     who: "The power of a single, well-timed prop",
     keywords: [
       { text: "Give the audience something to look at", strong: true },

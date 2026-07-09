@@ -128,7 +128,7 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({
                   prevSlide();
                 }}
                 disabled={currentIndex === 0}
-                className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border-none bg-white text-[#12102a] hover:bg-white/90 shadow-xl transition-all active:scale-90 cursor-pointer ${
+                className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border-none bg-white text-[#b45309] hover:bg-white/90 shadow-[0_8px_30px_rgba(120,53,15,0.18)] transition-all active:scale-90 cursor-pointer ${
                   currentIndex === 0 ? "opacity-30 cursor-not-allowed pointer-events-none" : ""
                 }`}
                 aria-label="Previous Slide"
@@ -150,7 +150,7 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({
                   nextSlide();
                 }}
                 disabled={currentIndex === totalSlides - 1}
-                className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border-none bg-white text-[#12102a] hover:bg-white/90 shadow-xl transition-all active:scale-90 cursor-pointer ${
+                className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border-none bg-[#b45309] text-white hover:bg-[#b45309]/90 shadow-[0_8px_30px_rgba(120,53,15,0.25)] transition-all active:scale-90 cursor-pointer ${
                   currentIndex === totalSlides - 1 ? "opacity-30 cursor-not-allowed pointer-events-none" : ""
                 }`}
                 aria-label="Next Slide"
@@ -165,7 +165,7 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({
 
         {/* Right Column: Glassmorphic Quote Card with Pointer pointing to the group photo */}
         <div
-          className="relative z-10 mt-8 md:mt-0 md:translate-y-[50px] p-6 rounded-xl bg-[#b45309] shadow-2xl max-w-[400px] text-left transition-all duration-700 opacity-100 scale-100 translate-x-0"
+          className="relative z-10 mt-8 md:mt-0 md:translate-y-[50px] p-6 rounded-xl bg-[#b45309] shadow-[0_20px_50px_rgba(120,53,15,0.35)] max-w-[400px] text-left transition-all duration-700 opacity-100 scale-100 translate-x-0"
         >
           <p className="font-display font-medium text-[clamp(16px,1.2vw,20px)] italic leading-relaxed text-white">
             "KamiLimu has made the lost girl find herself back"

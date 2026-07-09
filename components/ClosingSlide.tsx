@@ -119,7 +119,7 @@ export const ClosingSlide: React.FC<ClosingSlideProps> = ({
             {slide.keywords.map((kw, i) => (
               <span
                 key={i}
-                className="relative z-10 font-mono text-[clamp(12px,0.95vw,15px)] px-[18px] py-[10px] rounded-[100px] whitespace-nowrap shadow-md bg-[#b45309] text-white font-semibold border-none"
+                className="relative z-10 font-mono text-[clamp(12px,0.95vw,15px)] px-[18px] py-[10px] rounded-[100px] whitespace-nowrap shadow-[0_4px_12px_rgba(120,53,15,0.15)] bg-[#b45309] text-white font-semibold border-none"
               >
                 {kw.text}
               </span>
@@ -155,7 +155,7 @@ export const ClosingSlide: React.FC<ClosingSlideProps> = ({
                   prevSlide();
                 }}
                 disabled={currentIndex === 0}
-                className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border-none bg-white text-[#12102a] hover:bg-white/90 shadow-xl transition-all active:scale-90 cursor-pointer ${
+                className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border-none bg-white text-[#b45309] hover:bg-white/90 shadow-[0_8px_30px_rgba(120,53,15,0.18)] transition-all active:scale-90 cursor-pointer ${
                   currentIndex === 0 ? "opacity-30 cursor-not-allowed pointer-events-none" : ""
                 }`}
                 aria-label="Previous Slide"
@@ -181,7 +181,7 @@ export const ClosingSlide: React.FC<ClosingSlideProps> = ({
                   nextSlide();
                 }}
                 disabled={currentIndex === totalSlides - 1}
-                className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border-none bg-white text-[#12102a] hover:bg-white/90 shadow-xl transition-all active:scale-90 cursor-pointer ${
+                className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border-none bg-[#b45309] text-white hover:bg-[#b45309]/90 shadow-[0_8px_30px_rgba(120,53,15,0.25)] transition-all active:scale-90 cursor-pointer ${
                   currentIndex === totalSlides - 1 ? "opacity-30 cursor-not-allowed pointer-events-none" : ""
                 }`}
                 aria-label="Next Slide"

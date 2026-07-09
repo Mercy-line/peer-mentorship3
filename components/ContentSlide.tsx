@@ -137,7 +137,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
             {slide.keywords.map((kw, i) => (
               <span
                 key={i}
-                className="font-mono text-[clamp(12px,0.95vw,15px)] px-[18px] py-[10px] rounded-[100px] whitespace-nowrap shadow-sm bg-[#b45309] text-white font-semibold border-none"
+                className="font-mono text-[clamp(12px,0.95vw,15px)] px-[18px] py-[10px] rounded-[100px] whitespace-nowrap shadow-[0_4px_12px_rgba(120,53,15,0.15)] bg-[#b45309] text-white font-semibold border-none"
               >
                 {kw.text}
               </span>
@@ -172,7 +172,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
                   prevSlide();
                 }}
                 disabled={currentIndex === 0}
-                className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border-none bg-white text-[#12102a] hover:bg-white/90 shadow-xl transition-all active:scale-90 cursor-pointer ${
+                className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border-none bg-white text-[#b45309] hover:bg-white/90 shadow-[0_8px_30px_rgba(120,53,15,0.18)] transition-all active:scale-90 cursor-pointer ${
                   currentIndex === 0 ? "opacity-30 cursor-not-allowed pointer-events-none" : ""
                 }`}
                 aria-label="Previous Slide"
@@ -198,7 +198,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
                   nextSlide();
                 }}
                 disabled={currentIndex === totalSlides - 1}
-                className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border-none bg-white text-[#12102a] hover:bg-white/90 shadow-xl transition-all active:scale-90 cursor-pointer ${
+                className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border-none bg-[#b45309] text-white hover:bg-[#b45309]/90 shadow-[0_8px_30px_rgba(120,53,15,0.25)] transition-all active:scale-90 cursor-pointer ${
                   currentIndex === totalSlides - 1 ? "opacity-30 cursor-not-allowed pointer-events-none" : ""
                 }`}
                 aria-label="Next Slide"
@@ -215,7 +215,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
         {slide.contentImages && slide.contentImages.length > 0 && (
           <div
             className={`w-full md:w-[44vw] max-w-[500px] aspect-[4/3] rounded-xl border overflow-hidden shadow-2xl transition-all duration-700 ${
-              hasBg ? "border-white/10" : "border-black/5"
+              hasBg ? "border-white/10 bg-[#78350f]" : "border-black/5 bg-[#b45309]"
             } ${
               isActive
                 ? "opacity-100 scale-100 translate-x-0"
@@ -226,7 +226,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
                 ? {
                     boxShadow: hasBg
                       ? `0 20px 40px -15px var(--accent2), 0 0 30px -10px var(--accent)`
-                      : `0 30px 60px -12px rgba(0, 0, 0, 0.22)`,
+                      : `0 30px 60px -12px rgba(120, 53, 15, 0.22)`,
                     transitionDelay: "0.45s",
                   }
                 : undefined
@@ -235,7 +235,11 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
             <img
               src={slide.contentImages[0]}
               alt="Slide Illustration"
-              className="w-full h-full object-cover"
+              className={
+                slide.contentImages[0].endsWith(".png") || slide.contentImages[0].includes("-preview")
+                  ? "w-full h-full object-contain p-6"
+                  : "w-full h-full object-cover"
+              }
             />
           </div>
         )}
