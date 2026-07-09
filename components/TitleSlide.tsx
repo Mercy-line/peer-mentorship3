@@ -19,8 +19,32 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({ slide, isActive }) => {
         "--accent2": slide.accent2,
       } as React.CSSProperties}
     >
+      {/* Background Media */}
+      {slide.bgVideo ? (
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <video
+            src={slide.bgVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-35"
+          />
+          <div className="absolute inset-0 bg-[#12102a]/70 backdrop-blur-[1px]" />
+        </div>
+      ) : slide.bgImage ? (
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <img
+            src={slide.bgImage}
+            alt=""
+            className="w-full h-full object-cover opacity-35"
+          />
+          <div className="absolute inset-0 bg-[#12102a]/70 backdrop-blur-[1px]" />
+        </div>
+      ) : null}
+
       <div
-        className={`font-mono tracking-[0.22em] uppercase text-[clamp(11px,1vw,14px)] text-[var(--accent)] font-bold flex items-center gap-[14px] mb-[18px] before:content-[''] before:w-[26px] before:h-[2px] before:bg-[var(--accent)] ${
+        className={`relative z-10 font-mono tracking-[0.22em] uppercase text-[clamp(11px,1vw,14px)] text-[var(--accent)] font-bold flex items-center gap-[14px] mb-[18px] before:content-[''] before:w-[26px] before:h-[2px] before:bg-[var(--accent)] ${
           isActive ? "animate-fadeUp" : ""
         }`}
         style={isActive ? { animationDelay: "0.05s" } : undefined}
@@ -29,7 +53,7 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({ slide, isActive }) => {
       </div>
 
       <h1
-        className={`font-display font-bold text-[clamp(46px,8vw,108px)] leading-[0.98] tracking-[-0.015em] [&_.glow]:glow-text ${
+        className={`relative z-10 font-display font-bold text-[clamp(46px,8vw,108px)] leading-[0.98] tracking-[-0.015em] [&_.glow]:glow-text ${
           isActive ? "animate-fadeUp" : ""
         }`}
         style={isActive ? { animationDelay: "0.15s" } : undefined}
@@ -37,7 +61,7 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({ slide, isActive }) => {
       />
 
       <div
-        className={`mt-[22px] font-mono text-[clamp(13px,1.1vw,17px)] text-ink-dim tracking-[0.03em] ${
+        className={`relative z-10 mt-[22px] font-mono text-[clamp(13px,1.1vw,17px)] text-ink-dim tracking-[0.03em] ${
           isActive ? "animate-fadeUp" : ""
         }`}
         style={isActive ? { animationDelay: "0.3s" } : undefined}
@@ -45,7 +69,7 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({ slide, isActive }) => {
         {slide.subtitle}
       </div>
 
-      <div className="flex flex-col-reverse gap-2 mt-12">
+      <div className="relative z-10 flex flex-col-reverse gap-2 mt-12">
         {slide.stackColors.map((color, i) => (
           <div
             key={i}

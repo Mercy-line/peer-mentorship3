@@ -22,9 +22,33 @@ export const ClosingSlide: React.FC<ClosingSlideProps> = ({
         "--accent2": slide.accent2,
       } as React.CSSProperties}
     >
+      {/* Background Media */}
+      {slide.bgVideo ? (
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <video
+            src={slide.bgVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-35"
+          />
+          <div className="absolute inset-0 bg-[#12102a]/70 backdrop-blur-[1px]" />
+        </div>
+      ) : slide.bgImage ? (
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <img
+            src={slide.bgImage}
+            alt=""
+            className="w-full h-full object-cover opacity-35"
+          />
+          <div className="absolute inset-0 bg-[#12102a]/70 backdrop-blur-[1px]" />
+        </div>
+      ) : null}
+
       {/* Eyebrow */}
       <div
-        className={`font-mono tracking-[0.22em] uppercase text-[clamp(11px,1vw,14px)] text-[var(--accent)] font-bold flex items-center gap-[14px] mb-[18px] before:content-[''] before:w-[26px] before:h-[2px] before:bg-[var(--accent)] ${
+        className={`relative z-10 font-mono tracking-[0.22em] uppercase text-[clamp(11px,1vw,14px)] text-[var(--accent)] font-bold flex items-center gap-[14px] mb-[18px] before:content-[''] before:w-[26px] before:h-[2px] before:bg-[var(--accent)] ${
           isActive ? "animate-fadeUp" : ""
         }`}
         style={isActive ? { animationDelay: "0.05s" } : undefined}
@@ -34,7 +58,7 @@ export const ClosingSlide: React.FC<ClosingSlideProps> = ({
 
       {/* Main Headline */}
       <h1
-        className={`font-display font-bold text-[clamp(34px,5.4vw,72px)] leading-[1.02] tracking-[-0.01em] max-w-[20ch] text-ink ${
+        className={`relative z-10 font-display font-bold text-[clamp(34px,5.4vw,72px)] leading-[1.02] tracking-[-0.01em] max-w-[20ch] text-ink ${
           isActive ? "animate-fadeUp" : ""
         }`}
         style={isActive ? { animationDelay: "0.15s" } : undefined}
@@ -43,7 +67,7 @@ export const ClosingSlide: React.FC<ClosingSlideProps> = ({
 
       {/* Closing Stack Summary (Chips) */}
       <div
-        className={`flex flex-wrap gap-[12px] mt-[36px] max-w-full sm:max-w-[60vw] ${
+        className={`relative z-10 flex flex-wrap gap-[12px] mt-[36px] max-w-full sm:max-w-[60vw] ${
           isActive ? "animate-fadeUp" : ""
         }`}
         style={isActive ? { animationDelay: "0.25s" } : undefined}
@@ -51,7 +75,7 @@ export const ClosingSlide: React.FC<ClosingSlideProps> = ({
         {slide.keywords.map((kw, i) => (
           <span
             key={i}
-            className={`font-mono text-[clamp(12px,0.95vw,15px)] font-medium px-[18px] py-[10px] rounded-[100px] border whitespace-nowrap ${
+            className={`relative z-10 font-mono text-[clamp(12px,0.95vw,15px)] font-medium px-[18px] py-[10px] rounded-[100px] border whitespace-nowrap ${
               kw.strong
                 ? "border-[var(--accent)] text-[var(--accent)]"
                 : "border-[var(--line)] bg-white/3 text-ink"
@@ -72,7 +96,7 @@ export const ClosingSlide: React.FC<ClosingSlideProps> = ({
 
       {/* Thanks message */}
       <div
-        className={`mt-[30px] font-mono text-[14px] text-ink-dim ${
+        className={`relative z-10 mt-[30px] font-mono text-[14px] text-ink-dim ${
           isActive ? "animate-fadeUp" : ""
         }`}
         style={isActive ? { animationDelay: "0.35s" } : undefined}

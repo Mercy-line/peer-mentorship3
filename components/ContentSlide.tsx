@@ -22,9 +22,33 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
         "--accent2": slide.accent2,
       } as React.CSSProperties}
     >
+      {/* Background Media */}
+      {slide.bgVideo ? (
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <video
+            src={slide.bgVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-35"
+          />
+          <div className="absolute inset-0 bg-[#12102a]/70 backdrop-blur-[1px]" />
+        </div>
+      ) : slide.bgImage ? (
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <img
+            src={slide.bgImage}
+            alt=""
+            className="w-full h-full object-cover opacity-35"
+          />
+          <div className="absolute inset-0 bg-[#12102a]/70 backdrop-blur-[1px]" />
+        </div>
+      ) : null}
+
       {/* Big Slide Number in Background */}
       <div
-        className={`absolute right-[7vw] top-[8vh] font-mono text-[clamp(60px,9vw,150px)] font-bold text-ink opacity-[0.07] line-height-none select-none ${
+        className={`absolute right-[7vw] top-[8vh] font-mono text-[clamp(60px,9vw,150px)] font-bold text-ink opacity-[0.07] line-height-none select-none z-10 ${
           isActive ? "animate-fadeUp" : ""
         }`}
         style={isActive ? { animationDelay: "0.05s" } : undefined}
@@ -34,7 +58,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
 
       {/* Eyebrow header */}
       <div
-        className={`font-mono tracking-[0.22em] uppercase text-[clamp(11px,1vw,14px)] text-[var(--accent)] font-bold flex items-center gap-[14px] mb-[18px] before:content-[''] before:w-[26px] before:h-[2px] before:bg-[var(--accent)] ${
+        className={`relative z-10 font-mono tracking-[0.22em] uppercase text-[clamp(11px,1vw,14px)] text-[var(--accent)] font-bold flex items-center gap-[14px] mb-[18px] before:content-[''] before:w-[26px] before:h-[2px] before:bg-[var(--accent)] ${
           isActive ? "animate-fadeUp" : ""
         }`}
         style={isActive ? { animationDelay: "0.08s" } : undefined}
@@ -44,7 +68,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
 
       {/* Main Headline */}
       <h1
-        className={`font-display font-bold text-[clamp(38px,6.4vw,84px)] leading-[1.02] tracking-[-0.01em] max-w-[16ch] text-ink ${
+        className={`relative z-10 font-display font-bold text-[clamp(38px,6.4vw,84px)] leading-[1.02] tracking-[-0.01em] max-w-[16ch] text-ink ${
           isActive ? "animate-fadeUp" : ""
         }`}
         style={isActive ? { animationDelay: "0.16s" } : undefined}
@@ -53,7 +77,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
 
       {/* Description / Subtext */}
       <div
-        className={`font-mono text-[clamp(12px,1vw,14px)] text-ink-dim mt-[14px] tracking-[0.02em] [&_b]:text-ink ${
+        className={`relative z-10 font-mono text-[clamp(12px,1vw,14px)] text-ink-dim mt-[14px] tracking-[0.02em] [&_b]:text-ink ${
           isActive ? "animate-fadeUp" : ""
         }`}
         style={isActive ? { animationDelay: "0.24s" } : undefined}
@@ -62,7 +86,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
 
       {/* Keyword Chips */}
       <div
-        className={`flex flex-wrap gap-[12px] mt-[36px] max-w-full sm:max-w-[60vw] ${
+        className={`relative z-10 flex flex-wrap gap-[12px] mt-[36px] max-w-full sm:max-w-[60vw] ${
           isActive ? "animate-fadeUp" : ""
         }`}
         style={isActive ? { animationDelay: "0.32s" } : undefined}
@@ -91,7 +115,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
 
       {/* Tagline quote */}
       <div
-        className={`mt-[44px] font-display font-semibold text-[clamp(18px,1.7vw,26px)] text-ink max-w-[34ch] border-l-3 border-[var(--accent)] pl-[18px] [&_span]:text-[var(--accent)] ${
+        className={`relative z-10 mt-[44px] font-display font-semibold text-[clamp(18px,1.7vw,26px)] text-ink max-w-[34ch] border-l-3 border-[var(--accent)] pl-[18px] [&_span]:text-[var(--accent)] ${
           isActive ? "animate-fadeUp" : ""
         }`}
         style={isActive ? { animationDelay: "0.4s" } : undefined}

@@ -9,6 +9,7 @@ export const slidesData: SlideData[] = [
     eyebrow: "Monthly Learning · Month 3",
     title: "Seven Lessons.<br>One <span class=\"glow\">Stack</span><br>of Growth.",
     subtitle: "Code · Critical Thinking · Research · Voice · Design",
+    bgImage: "/backgrounds/bg_title.jpg",
     stackColors: [
       "#8f7bff",
       "#ff7ab8",
@@ -27,6 +28,7 @@ export const slidesData: SlideData[] = [
     accent2: "#123a4d",
     eyebrow: "ICT Track · Robin",
     title: "Code the Logic",
+    bgImage: "/backgrounds/ict.jpg",
     who: "From <b>Big-O</b> to <b>OOP</b> — thinking like a computer, and like a researcher",
     keywords: [
       { text: "Hash → O(1)", strong: true },
@@ -121,6 +123,7 @@ export const slidesData: SlideData[] = [
     accent2: "#2a1a4d",
     eyebrow: "Public Speaking in Practice",
     title: "Show, Don't Just Tell",
+    bgImage: "/backgrounds/public_speaking.jpg",
     who: "The power of a single, well-timed prop",
     keywords: [
       { text: "Give the audience something to look at", strong: true },
