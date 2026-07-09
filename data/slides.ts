@@ -55,7 +55,7 @@ export const slidesData: SlideData[] = [
       { text: "List → O(n)", strong: true },
       { text: "Stack = LIFO" },
       { text: "Queue = FIFO" },
-      { text: "Python: strongly typed" },
+      { text: "Python: Interpreted strongly typed" },
       { text: "Memoization + @lru_cache" },
       { text: "Threads · Processes · Async" },
       { text: "Concurrency ≠ Parallelism" },
