@@ -49,7 +49,7 @@ export const slidesData: SlideData[] = [
     title: "Code the Logic",
     bgImage: "/backgrounds/ict.jpg",
     contentImages: ["/pragmattic.jpeg"],
-    who: "From <b>Big-O</b> to <b>OOP</b> — thinking like a computer, and like a researcher",
+    who: "From <b>Big-O</b> to <b>OOP</b> in the absence of evidence resist the urge to guess",
     keywords: [
       { text: "Hash → O(1)", strong: true },
       { text: "List → O(n)", strong: true },
