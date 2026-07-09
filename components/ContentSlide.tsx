@@ -76,7 +76,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
         <div className="flex flex-col items-start w-full md:max-w-[55%] text-left">
           {/* Eyebrow header */}
           <div
-            className={`relative z-10 font-mono tracking-[0.22em] text-[clamp(11px,1vw,14px)] text-[var(--accent)] font-bold flex items-center gap-[14px] mb-[18px] before:content-[''] before:w-[26px] before:h-[2px] before:bg-[var(--accent)] ${
+            className={`relative z-10 font-mono tracking-[0.22em] text-[clamp(11px,1vw,14px)] text-[var(--accent)] font-bold mb-[18px] ${
               isActive ? "animate-fadeUp" : ""
             }`}
             style={
@@ -137,20 +137,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
             {slide.keywords.map((kw, i) => (
               <span
                 key={i}
-                className={`font-mono text-[clamp(12px,0.95vw,15px)] px-[18px] py-[10px] rounded-[100px] whitespace-nowrap shadow-sm ${
-                  kw.strong
-                    ? "text-white font-bold border-none"
-                    : hasBg
-                    ? "bg-white text-black font-semibold border-none"
-                    : "bg-[#b45309]/10 text-[#b45309] border-none"
-                }`}
-                style={
-                  kw.strong
-                    ? {
-                        backgroundColor: "var(--accent)",
-                      }
-                    : undefined
-                }
+                className="font-mono text-[clamp(12px,0.95vw,15px)] px-[18px] py-[10px] rounded-[100px] whitespace-nowrap shadow-sm bg-[#b45309] text-white font-semibold border-none"
               >
                 {kw.text}
               </span>

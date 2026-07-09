@@ -47,8 +47,8 @@ export const SlideDeck: React.FC = () => {
 
   if (!mounted) {
     return (
-      <div className="w-full h-screen bg-[#12102a] flex items-center justify-center font-mono text-[#9a93c9]">
-        Loading Stack...
+      <div className="w-full h-screen bg-white flex items-center justify-center font-display text-[clamp(16px,2vw,24px)] text-[#b45309] font-medium italic animate-pulse">
+        welcome to kamilimu month 3 # Keep Learning
       </div>
     );
   }

@@ -70,7 +70,7 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({
         <div className="flex flex-col items-start w-full md:max-w-[55%] text-left">
           {/* Eyebrow */}
           <div
-            className={`relative z-10 font-mono tracking-[0.22em] text-[clamp(11px,1vw,14px)] text-[var(--accent)] font-bold flex items-center gap-[14px] mb-[18px] before:content-[''] before:w-[26px] before:h-[2px] before:bg-[var(--accent)] ${
+            className={`relative z-10 font-mono tracking-[0.22em] text-[clamp(12px,1.1vw,15px)] text-[var(--accent)] font-bold mb-[22px] ${
               isActive ? "animate-fadeUp" : ""
             }`}
             style={

@@ -89,6 +89,7 @@ export const slidesData: SlideData[] = [
     accent2: "#78350f",
     eyebrow: "Research Skills for Academia & Innovation · Dr C",
     title: "From Curiosity to Citation",
+    bgImage: "/backgrounds/DSC_1308.jpg",
     contentImages: ["/google_scholar.jpeg"],
     who: "Replace guesswork with evidence — start broad, funnel narrow",
     keywords: [
@@ -151,7 +152,7 @@ export const slidesData: SlideData[] = [
       { text: "Every friction point is a design flaw" },
       { text: "Good design is invisible" },
     ],
-    tagline: "Bad design is <span>everywhere</span> — until you're trained to see it.",
+    tagline: "Bad design is <span>everywhere</span> until you're trained to see it.",
   },
   {
     id: 8,
@@ -159,7 +160,7 @@ export const slidesData: SlideData[] = [
     accent: "#b45309",
     accent2: "#78350f",
     eyebrow: "Wrapped",
-    title: "Keep Learning.<br>Keep Questioning.",
+    title: "Keep Learning.<br> Have fun.",
     bgImage: "/backgrounds/keep_learning.JPG",
     contentImages: ["/keep_learning.jpeg"],
     keywords: [
