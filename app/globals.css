@@ -1,33 +1,34 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #12102a;
-  --color-bg2: #1a1640;
-  --color-ink: #f4f2ff;
-  --color-ink-dim: #9a93c9;
-  --color-line: rgba(244, 242, 255, 0.12);
+  --color-bg: #ffffff;
+  --color-bg2: #fbfbfa;
+  --color-ink: #12100e;
+  --color-ink-dim: #5c554e;
+  --color-line: rgba(18, 16, 14, 0.08);
 
   --font-display: var(--font-playfair-display), serif;
-  --font-body: var(--font-inter), sans-serif;
-  --font-mono: var(--font-jetbrains-mono), monospace;
+  --font-body: var(--font-playfair-display), serif;
+  --font-mono: var(--font-playfair-display), serif;
 }
 
 :root {
-  --bg: #12102a;
-  --bg2: #1a1640;
-  --ink: #f4f2ff;
-  --ink-dim: #9a93c9;
-  --line: rgba(244, 242, 255, 0.12);
+  --bg: #ffffff;
+  --bg2: #fbfbfa;
+  --ink: #12100e;
+  --ink-dim: #5c554e;
+  --line: rgba(18, 16, 14, 0.08);
 }
 
-html,
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-playfair-display), serif;
+  overflow-x: hidden;
 }
 
 /* Custom Transitions & Keyframes */

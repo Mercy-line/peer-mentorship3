@@ -21,8 +21,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Month 3: What We Stacked Up",
-  description: "A summary presentation of our learning stack in Month 3.",
+  title: "What We Stacked Up",
+  description: "A summary presentation of our learning stack.",
 };
 
 export default function RootLayout({

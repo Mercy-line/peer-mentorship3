@@ -22,12 +22,13 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
 
   return (
     <section
-      className={`absolute inset-0 z-10 flex flex-col justify-center px-[6vw] sm:px-[9vw] py-[6vh] transition-all duration-700 ${
-        hasBg ? "text-ink" : "bg-white text-[#12102a]"
+      id={`slide-${currentIndex}`}
+      className={`relative w-full min-h-screen flex flex-col justify-center px-[6vw] sm:px-[9vw] py-[12vh] border-b border-black/5 transition-all duration-700 ${
+        hasBg
+          ? "bg-[#181615] text-white"
+          : "bg-white text-[var(--ink)]"
       } ${
-        isActive
-          ? "opacity-100 pointer-events-auto animate-riseIn"
-          : "opacity-0 pointer-events-none translate-y-[26px]"
+        isActive ? "opacity-100" : "opacity-95"
       }`}
       style={{
         "--accent": slide.accent,
@@ -75,7 +76,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
         <div className="flex flex-col items-start w-full md:max-w-[55%] text-left">
           {/* Eyebrow header */}
           <div
-            className={`relative z-10 font-mono tracking-[0.22em] uppercase text-[clamp(11px,1vw,14px)] text-[var(--accent)] font-bold flex items-center gap-[14px] mb-[18px] before:content-[''] before:w-[26px] before:h-[2px] before:bg-[var(--accent)] ${
+            className={`relative z-10 font-mono tracking-[0.22em] text-[clamp(11px,1vw,14px)] text-[var(--accent)] font-bold flex items-center gap-[14px] mb-[18px] before:content-[''] before:w-[26px] before:h-[2px] before:bg-[var(--accent)] ${
               isActive ? "animate-fadeUp" : ""
             }`}
             style={
@@ -93,7 +94,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
           {/* Main Headline */}
           <h1
             className={`relative z-10 font-display font-bold text-[clamp(38px,6.4vw,84px)] leading-[1.02] tracking-[-0.01em] max-w-[16ch] ${
-              hasBg ? "text-ink" : "text-[#12102a]"
+              hasBg ? "text-white" : "text-[var(--ink)]"
             } ${
               isActive ? "animate-fadeUp" : ""
             }`}
@@ -111,7 +112,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
           {/* Description / Subtext */}
           <div
             className={`relative z-10 font-mono text-[clamp(12px,1vw,14px)] mt-[14px] tracking-[0.02em] ${
-              hasBg ? "text-ink-dim [&_b]:text-ink" : "text-[#475569] [&_b]:text-[#12102a]"
+              hasBg ? "text-[#d1cbc4] [&_b]:text-white" : "text-[var(--ink-dim)] [&_b]:text-[var(--ink)]"
             } ${
               isActive ? "animate-fadeUp" : ""
             }`}
@@ -140,8 +141,8 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
                   kw.strong
                     ? "text-white font-bold border-none"
                     : hasBg
-                    ? "bg-white/10 text-ink border-none"
-                    : "bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0]"
+                    ? "bg-white/10 text-white border-none"
+                    : "bg-[#b45309]/10 text-[#b45309] border-none"
                 }`}
                 style={
                   kw.strong
@@ -159,8 +160,8 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
           {/* Tagline quote */}
           <div
             className={`relative z-10 mt-[44px] font-display font-semibold text-[clamp(18px,1.7vw,26px)] max-w-[34ch] border-l-3 border-[var(--accent)] pl-[18px] ${
-              hasBg ? "text-ink [&_span]:text-[var(--accent)]" : "text-[#12102a] [&_span]:text-[var(--accent)]"
-            } ${
+              hasBg ? "text-white" : "text-[var(--ink)]"
+            } [&_span]:text-[var(--accent)] ${
               isActive ? "animate-fadeUp" : ""
             }`}
             style={
@@ -177,18 +178,14 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
           {/* Arrow navigation controller immediately after content on the left */}
           {prevSlide && nextSlide && typeof currentIndex === "number" && typeof totalSlides === "number" && (
             <div className="relative z-20 flex items-center gap-[14px] mt-[20px] pointer-events-auto">
-              {/* Back Button */}
+               {/* Back Button */}
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   prevSlide();
                 }}
                 disabled={currentIndex === 0}
-                className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border transition-all active:scale-90 shadow-md cursor-pointer ${
-                  hasBg
-                    ? "border-white/20 bg-white/10 text-white hover:bg-white/20"
-                    : "border-[#cbd5e1] bg-[#f8fafc] text-[#12102a] hover:bg-[#e2e8f0] hover:text-[#0ea5e9]"
-                } ${
+                className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border-none bg-white text-[#12102a] hover:bg-white/90 shadow-xl transition-all active:scale-90 cursor-pointer ${
                   currentIndex === 0 ? "opacity-30 cursor-not-allowed pointer-events-none" : ""
                 }`}
                 aria-label="Previous Slide"
@@ -200,11 +197,11 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
 
               {/* Counter */}
               <div
-                className={`font-mono text-[12px] tracking-[0.05em] select-none min-w-[50px] text-center transition-colors duration-500 ${
-                  hasBg ? "text-[#9a93c9]" : "text-[#475569]"
+                className={`font-mono text-[12px] tracking-[0.05em] select-none min-w-[50px] text-center ${
+                  hasBg ? "text-[#d1cbc4]" : "text-[var(--ink-dim)]"
                 }`}
               >
-                <b className={hasBg ? "text-[#f4f2ff]" : "text-[#12102a]"}>{currentIndex + 1}</b> / {totalSlides}
+                <b className={hasBg ? "text-white" : "text-[var(--ink)]"}>{currentIndex + 1}</b> / {totalSlides}
               </div>
 
               {/* Next Button */}
@@ -214,11 +211,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
                   nextSlide();
                 }}
                 disabled={currentIndex === totalSlides - 1}
-                className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border transition-all active:scale-90 shadow-lg cursor-pointer ${
-                  hasBg
-                    ? "border-white/20 bg-white/10 text-white hover:bg-white/20"
-                    : "border-[#cbd5e1] bg-[#f8fafc] text-[#12102a] hover:bg-[#e2e8f0] hover:text-[#0ea5e9]"
-                } ${
+                className={`w-[38px] h-[38px] rounded-full flex items-center justify-center border-none bg-white text-[#12102a] hover:bg-white/90 shadow-xl transition-all active:scale-90 cursor-pointer ${
                   currentIndex === totalSlides - 1 ? "opacity-30 cursor-not-allowed pointer-events-none" : ""
                 }`}
                 aria-label="Next Slide"
@@ -235,7 +228,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
         {slide.contentImages && slide.contentImages.length > 0 && (
           <div
             className={`w-full md:w-[44vw] max-w-[500px] aspect-[4/3] rounded-xl border overflow-hidden shadow-2xl transition-all duration-700 ${
-              hasBg ? "border-white/10" : "border-black/10"
+              hasBg ? "border-white/10" : "border-black/5"
             } ${
               isActive
                 ? "opacity-100 scale-100 translate-x-0"
@@ -246,7 +239,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
                 ? {
                     boxShadow: hasBg
                       ? `0 20px 40px -15px var(--accent2), 0 0 30px -10px var(--accent)`
-                      : `0 20px 40px -15px rgba(14,165,233,0.08)`,
+                      : `0 20px 40px -15px rgba(180,83,9,0.08)`,
                     transitionDelay: "0.45s",
                   }
                 : undefined
