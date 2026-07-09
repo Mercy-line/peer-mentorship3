@@ -7,7 +7,7 @@
   --color-ink-dim: #9a93c9;
   --color-line: rgba(244, 242, 255, 0.12);
 
-  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-display: var(--font-playfair-display), serif;
   --font-body: var(--font-inter), sans-serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
 }
@@ -115,4 +115,17 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0.8deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }

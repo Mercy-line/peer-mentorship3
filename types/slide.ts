@@ -11,6 +11,7 @@ export interface BaseSlide {
   title: string; // supports HTML or formatted strings
   bgImage?: string; // optional background image path
   bgVideo?: string; // optional background video path
+  contentImages?: string[]; // optional list of inline/floating emphasis images
 }
 
 export interface TitleSlideData extends BaseSlide {

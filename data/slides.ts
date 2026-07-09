@@ -24,11 +24,12 @@ export const slidesData: SlideData[] = [
     id: 1,
     type: "content",
     bignum: "01",
-    accent: "#3fd0ff",
-    accent2: "#123a4d",
+    accent: "#4895ef",
+    accent2: "#1b3a4b",
     eyebrow: "ICT Track · Robin",
     title: "Code the Logic",
     bgImage: "/backgrounds/ict.jpg",
+    contentImages: ["/pragmattic.jpeg"],
     who: "From <b>Big-O</b> to <b>OOP</b> — thinking like a computer, and like a researcher",
     keywords: [
       { text: "Hash → O(1)", strong: true },
@@ -69,6 +70,7 @@ export const slidesData: SlideData[] = [
     accent2: "#3d2b10",
     eyebrow: "Responsible Use of AI in Job Applications · Collins Wanjohi",
     title: "AI Assists. You Decide.",
+    contentImages: ["/jobs.jpg"],
     who: "Know the job description before you let AI near it",
     keywords: [
       { text: "No second screen in interviews", strong: true },
@@ -87,6 +89,7 @@ export const slidesData: SlideData[] = [
     accent2: "#0f3d2b",
     eyebrow: "Research Skills for Academia & Innovation · Dr C",
     title: "From Curiosity to Citation",
+    contentImages: ["/google_scholar.jpeg"],
     who: "Replace guesswork with evidence — start broad, funnel narrow",
     keywords: [
       { text: "Google Scholar · ACM · IEEE · SIGCSE", strong: true },
@@ -105,6 +108,7 @@ export const slidesData: SlideData[] = [
     accent2: "#3d1f10",
     eyebrow: "Scholarship Writing Principles · Dr C & Bridgette",
     title: "Your Story. Your Voice.",
+    contentImages: ["/your_story.jpeg"],
     who: "Writing is a <b>leadership skill</b> — practice what you preach",
     keywords: [
       { text: "Hook the reviewer first", strong: true },
@@ -119,8 +123,8 @@ export const slidesData: SlideData[] = [
     id: 6,
     type: "content",
     bignum: "06",
-    accent: "#b98cff",
-    accent2: "#2a1a4d",
+    accent: "#e68a00",
+    accent2: "#3d2000",
     eyebrow: "Public Speaking in Practice",
     title: "Show, Don't Just Tell",
     bgImage: "/backgrounds/public_speaking.jpg",
@@ -140,6 +144,7 @@ export const slidesData: SlideData[] = [
     accent2: "#3d3210",
     eyebrow: "Human-Centered Design & Thinking",
     title: "Design for Humans",
+    contentImages: ["/HCD.webp"],
     who: "Grounded in Don Norman's <b>\"The Design of Everyday Things\"</b>",
     keywords: [
       { text: "Design starts with the user", strong: true },
@@ -155,6 +160,7 @@ export const slidesData: SlideData[] = [
     accent2: "#2a2560",
     eyebrow: "Month 3 · Wrapped",
     title: "Keep Learning.<br>Keep Questioning.",
+    contentImages: ["/keepLearning.jpeg", "/keep_learning.jpeg"],
     keywords: [
       { text: "Code", strong: true },
       { text: "Think", strong: true },

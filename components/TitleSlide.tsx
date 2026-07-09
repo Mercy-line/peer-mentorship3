@@ -28,18 +28,28 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({ slide, isActive }) => {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover opacity-35"
+            className="w-full h-full object-cover opacity-100"
           />
-          <div className="absolute inset-0 bg-[#12102a]/70 backdrop-blur-[1px]" />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "linear-gradient(90deg, #000000f0 0%, #000000c0 30%, #00000040 70%, transparent 100%)",
+            }}
+          />
         </div>
       ) : slide.bgImage ? (
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <img
             src={slide.bgImage}
             alt=""
-            className="w-full h-full object-cover opacity-35"
+            className="w-full h-full object-cover opacity-100"
           />
-          <div className="absolute inset-0 bg-[#12102a]/70 backdrop-blur-[1px]" />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "linear-gradient(90deg, #000000f0 0%, #000000c0 30%, #00000040 70%, transparent 100%)",
+            }}
+          />
         </div>
       ) : null}
 
