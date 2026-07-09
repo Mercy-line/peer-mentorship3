@@ -6,6 +6,7 @@ interface StackNavProps {
   currentIndex: number;
   onSelect: (index: number) => void;
   accent: string;
+  hasBg?: boolean;
 }
 
 export const StackNav: React.FC<StackNavProps> = ({
@@ -13,6 +14,7 @@ export const StackNav: React.FC<StackNavProps> = ({
   currentIndex,
   onSelect,
   accent,
+  hasBg = true,
 }) => {
   return (
     <div
@@ -31,7 +33,11 @@ export const StackNav: React.FC<StackNavProps> = ({
             className={`cursor-pointer transition-all duration-350 ease-[cubic-bezier(0.19,1,0.22,1)] ${
               isOn
                 ? "w-[44px] h-[9px] rounded-[4px]"
-                : "w-[26px] h-[6px] rounded-[4px] bg-[#f4f2ff]/18 hover:bg-[#f4f2ff]/40"
+                : `w-[26px] h-[6px] rounded-[4px] ${
+                    hasBg
+                      ? "bg-[#f4f2ff]/18 hover:bg-[#f4f2ff]/40"
+                      : "bg-[#12102a]/15 hover:bg-[#12102a]/35"
+                  }`
             }`}
             style={
               isOn

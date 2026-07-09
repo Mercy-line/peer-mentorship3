@@ -9,7 +9,7 @@ interface TitleSlideProps {
 export const TitleSlide: React.FC<TitleSlideProps> = ({ slide, isActive }) => {
   return (
     <section
-      className={`absolute inset-0 z-10 flex flex-col justify-center px-[6vw] sm:px-[9vw] py-[6vh] transition-all duration-700 ${
+      className={`absolute inset-0 z-10 flex flex-col justify-center items-center text-center px-[6vw] sm:px-[9vw] py-[6vh] transition-all duration-700 ${
         isActive
           ? "opacity-100 pointer-events-auto animate-riseIn"
           : "opacity-0 pointer-events-none translate-y-[26px]"
@@ -33,7 +33,7 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({ slide, isActive }) => {
           <div
             className="absolute inset-0"
             style={{
-              background: "linear-gradient(90deg, #000000f0 0%, #000000c0 30%, #00000040 70%, transparent 100%)",
+              background: "radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.8) 100%)",
             }}
           />
         </div>
@@ -47,14 +47,14 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({ slide, isActive }) => {
           <div
             className="absolute inset-0"
             style={{
-              background: "linear-gradient(90deg, #000000f0 0%, #000000c0 30%, #00000040 70%, transparent 100%)",
+              background: "radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.8) 100%)",
             }}
           />
         </div>
       ) : null}
 
       <div
-        className={`relative z-10 font-mono tracking-[0.22em] uppercase text-[clamp(11px,1vw,14px)] text-[var(--accent)] font-bold flex items-center gap-[14px] mb-[18px] before:content-[''] before:w-[26px] before:h-[2px] before:bg-[var(--accent)] ${
+        className={`relative z-10 font-mono tracking-[0.22em] uppercase text-[clamp(11px,1vw,14px)] text-[var(--accent)] font-bold flex items-center justify-center gap-[14px] mb-[18px] before:content-[''] before:w-[26px] before:h-[2px] before:bg-[var(--accent)] after:content-[''] after:w-[26px] after:h-[2px] after:bg-[var(--accent)] ${
           isActive ? "animate-fadeUp" : ""
         }`}
         style={isActive ? { animationDelay: "0.05s" } : undefined}
@@ -79,7 +79,7 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({ slide, isActive }) => {
         {slide.subtitle}
       </div>
 
-      <div className="relative z-10 flex flex-col-reverse gap-2 mt-12">
+      <div className="relative z-10 flex flex-col-reverse items-center gap-2 mt-12">
         {slide.stackColors.map((color, i) => (
           <div
             key={i}
