@@ -163,7 +163,7 @@ export const SlideDeck: React.FC = () => {
       {/* Floating Track Navbar (Fixed Top on Desktop, Floating Rounded Pill at Bottom on Mobile) */}
       <div className="fixed bottom-[24px] left-1/2 -translate-x-1/2 z-[100] w-[92%] max-w-[500px] md:bottom-auto md:top-[20px] md:left-1/2 md:-translate-x-1/2 md:w-[95%] md:max-w-[1020px] pointer-events-auto">
         <div
-          className="flex items-center justify-around md:justify-between gap-[4px] md:gap-[8px] px-[12px] md:px-[16px] py-[10px] md:py-[8px] rounded-full border border-black/10 bg-white/95 md:bg-white/70 backdrop-blur-md shadow-2xl md:shadow-lg transition-all duration-500 overflow-x-auto scrollbar-none pb-[8px] md:pb-[8px]"
+          className="flex items-center justify-around md:justify-between gap-[4px] md:gap-[8px] px-[12px] md:px-[16px] py-[10px] md:py-[8px] rounded-full border border-black/10 bg-white shadow-2xl md:shadow-lg transition-all duration-500 overflow-x-auto scrollbar-none pb-[8px] md:pb-[8px]"
         >
           {navItems.map((item) => {
             const isCurrent = item.index === currentIndex;

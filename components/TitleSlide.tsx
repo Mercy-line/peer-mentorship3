@@ -165,7 +165,7 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({
 
         {/* Right Column: Glassmorphic Quote Card with Pointer pointing to the group photo */}
         <div
-          className="relative z-10 mt-8 md:mt-0 p-6 rounded-xl bg-[#b45309] shadow-2xl max-w-[400px] text-left transition-all duration-700 opacity-100 scale-100 translate-x-0"
+          className="relative z-10 mt-8 md:mt-0 md:translate-y-[50px] p-6 rounded-xl bg-[#b45309] shadow-2xl max-w-[400px] text-left transition-all duration-700 opacity-100 scale-100 translate-x-0"
         >
           <p className="font-display font-medium text-[clamp(16px,1.2vw,20px)] italic leading-relaxed text-white">
             "KamiLimu has made the lost girl find herself back"

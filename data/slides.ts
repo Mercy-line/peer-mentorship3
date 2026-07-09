@@ -8,7 +8,7 @@ export const slidesData: SlideData[] = [
     accent2: "#78350f",
     eyebrow: "Monthly Learning",
     title: "Seven Lessons.<br>One <span class=\"glow\">Stack</span><br>of Growth.",
-    subtitle: "KamiLimu has made this girl find her young lost self",
+    subtitle: "",
     bgImage: "/backgrounds/kamilimu.JPG",
     stackColors: [
       "#b45309",

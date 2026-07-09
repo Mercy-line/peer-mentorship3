@@ -123,7 +123,7 @@ export const ClosingSlide: React.FC<ClosingSlideProps> = ({
                   kw.strong
                     ? "text-white font-bold border-none"
                     : hasBg
-                    ? "bg-white/10 text-white border-none"
+                    ? "bg-white text-black font-semibold border-none"
                     : "bg-[#b45309]/10 text-[#b45309] border-none"
                 }`}
                 style={
@@ -207,24 +207,23 @@ export const ClosingSlide: React.FC<ClosingSlideProps> = ({
           )}
         </div>
 
-        {/* Right Column: Integrated cards side-by-side, NOT stacked overlapping */}
+        {/* Right Column: Large Single Card or side-by-side cards */}
         {slide.contentImages && slide.contentImages.length > 0 && (
-          <div
-            className={`flex flex-row justify-center items-center gap-[16px] w-full md:w-[44vw] max-w-[540px] transition-all duration-700 ${
-              isActive
-                ? "opacity-100 scale-100 translate-x-0"
-                : "opacity-0 scale-95 translate-x-8 pointer-events-none"
-            }`}
-            style={isActive ? { transitionDelay: "0.4s" } : undefined}
-          >
-            {/* Card 1 */}
+          slide.contentImages.length === 1 ? (
             <div
-              className={`w-[48%] aspect-[3/4] rounded-xl border overflow-hidden shadow-2xl ${
-                hasBg ? "border-white/10" : "border-black/5"
+              className={`w-full md:w-[44vw] max-w-[500px] aspect-[4/3] rounded-xl border border-white/10 overflow-hidden shadow-2xl transition-all duration-700 ${
+                isActive
+                  ? "opacity-100 scale-100 translate-x-0"
+                  : "opacity-0 scale-95 translate-x-8 pointer-events-none"
               }`}
-              style={{
-                boxShadow: `0 15px 35px -10px var(--accent2)`,
-              }}
+              style={
+                isActive
+                  ? {
+                      boxShadow: `0 20px 40px -15px var(--accent2), 0 0 30px -10px var(--accent)`,
+                      transitionDelay: "0.4s",
+                    }
+                  : undefined
+              }
             >
               <img
                 src={slide.contentImages[0]}
@@ -232,9 +231,32 @@ export const ClosingSlide: React.FC<ClosingSlideProps> = ({
                 className="w-full h-full object-cover"
               />
             </div>
+          ) : (
+            <div
+              className={`flex flex-row justify-center items-center gap-[16px] w-full md:w-[44vw] max-w-[540px] transition-all duration-700 ${
+                isActive
+                  ? "opacity-100 scale-100 translate-x-0"
+                  : "opacity-0 scale-95 translate-x-8 pointer-events-none"
+              }`}
+              style={isActive ? { transitionDelay: "0.4s" } : undefined}
+            >
+              {/* Card 1 */}
+              <div
+                className={`w-[48%] aspect-[3/4] rounded-xl border overflow-hidden shadow-2xl ${
+                  hasBg ? "border-white/10" : "border-black/5"
+                }`}
+                style={{
+                  boxShadow: `0 15px 35px -10px var(--accent2)`,
+                }}
+              >
+                <img
+                  src={slide.contentImages[0]}
+                  alt="Emphasis 1"
+                  className="w-full h-full object-cover"
+                />
+              </div>
 
-            {/* Card 2 */}
-            {slide.contentImages.length > 1 && (
+              {/* Card 2 */}
               <div
                 className={`w-[48%] aspect-[3/4] rounded-xl border overflow-hidden shadow-2xl ${
                   hasBg ? "border-white/10" : "border-black/5"
@@ -249,8 +271,8 @@ export const ClosingSlide: React.FC<ClosingSlideProps> = ({
                   className="w-full h-full object-cover"
                 />
               </div>
-            )}
-          </div>
+            </div>
+          )
         )}
 
       </div>

@@ -8,8 +8,8 @@
   --color-line: rgba(18, 16, 14, 0.08);
 
   --font-display: var(--font-playfair-display), serif;
-  --font-body: var(--font-playfair-display), serif;
-  --font-mono: var(--font-playfair-display), serif;
+  --font-body: var(--font-inter), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
 }
 
 :root {
@@ -27,7 +27,7 @@ html {
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-playfair-display), serif;
+  font-family: var(--font-inter), sans-serif;
   overflow-x: hidden;
 }
 

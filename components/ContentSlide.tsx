@@ -141,7 +141,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
                   kw.strong
                     ? "text-white font-bold border-none"
                     : hasBg
-                    ? "bg-white/10 text-white border-none"
+                    ? "bg-white text-black font-semibold border-none"
                     : "bg-[#b45309]/10 text-[#b45309] border-none"
                 }`}
                 style={
@@ -239,7 +239,7 @@ export const ContentSlide: React.FC<ContentSlideProps> = ({
                 ? {
                     boxShadow: hasBg
                       ? `0 20px 40px -15px var(--accent2), 0 0 30px -10px var(--accent)`
-                      : `0 20px 40px -15px rgba(180,83,9,0.08)`,
+                      : `0 30px 60px -12px rgba(0, 0, 0, 0.22)`,
                     transitionDelay: "0.45s",
                   }
                 : undefined
