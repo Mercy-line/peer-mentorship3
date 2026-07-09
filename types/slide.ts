@@ -9,6 +9,8 @@ export interface BaseSlide {
   accent2: string;
   eyebrow: string;
   title: string; // supports HTML or formatted strings
+  bgImage?: string; // optional background image path
+  bgVideo?: string; // optional background video path
 }
 
 export interface TitleSlideData extends BaseSlide {

@@ -17,7 +17,7 @@ export const StackNav: React.FC<StackNavProps> = ({
   return (
     <div
       id="stack-nav"
-      className="absolute right-[26px] top-1/2 -translate-y-1/2 z-50 flex flex-col-reverse gap-2 items-end"
+      className="absolute right-[26px] top-1/2 -translate-y-1/2 z-50 flex flex-col gap-2 items-end"
     >
       {slides.map((_, index) => {
         const isOn = index === currentIndex;
