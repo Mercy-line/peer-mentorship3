@@ -1,52 +1,41 @@
 import { useState, useEffect, useCallback } from "react";
+import { slidesData } from "@/data/slides";
 
-export function useSlideDeck(totalSlides: number) {
+export function useSlideDeck() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
 
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => Math.min(prev + 1, totalSlides - 1));
-  }, [totalSlides]);
-
-  const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+  const scrollToSlide = useCallback((index: number) => {
+    const target = Math.max(0, Math.min(index, slidesData.length - 1));
+    setCurrentIndex(target);
+    document.getElementById(`slide-${target}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 
-  const goToSlide = useCallback(
-    (index: number) => {
-      setCurrentIndex(Math.max(0, Math.min(index, totalSlides - 1)));
-    },
-    [totalSlides]
-  );
+  useEffect(() => {
+    if (!mounted) return;
+    const sections = slidesData.map((_, i) => document.getElementById(`slide-${i}`));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          const idx = parseInt(e.target.id.replace("slide-", ""), 10);
+          if (!isNaN(idx)) setCurrentIndex(idx);
+        }
+      });
+    }, { threshold: 0.35, rootMargin: "-10% 0px -40% 0px" });
+    sections.forEach((sec) => sec && observer.observe(sec));
+    return () => sections.forEach((sec) => sec && observer.unobserve(sec));
+  }, [mounted]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Avoid firing when user is typing in inputs or textareas if they exist later
-      if (
-        document.activeElement?.tagName === "INPUT" ||
-        document.activeElement?.tagName === "TEXTAREA"
-      ) {
-        return;
-      }
-
-      if (e.key === "ArrowRight" || e.key === " ") {
-        e.preventDefault();
-        nextSlide();
-      } else if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        prevSlide();
-      }
+      if (document.activeElement?.tagName === "INPUT" || document.activeElement?.tagName === "TEXTAREA") return;
+      const step = e.key === "ArrowRight" || e.key === " " ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (step) { e.preventDefault(); scrollToSlide(currentIndex + step); }
     };
-
     window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [nextSlide, prevSlide]);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentIndex, scrollToSlide]);
 
-  return {
-    currentIndex,
-    nextSlide,
-    prevSlide,
-    goToSlide,
-  };
+  return { currentIndex, mounted, scrollToSlide };
 }

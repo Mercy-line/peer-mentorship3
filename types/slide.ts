@@ -10,7 +10,6 @@ export interface BaseSlide {
   eyebrow: string;
   title: string; // supports HTML or formatted strings
   bgImage?: string; // optional background image path
-  bgVideo?: string; // optional background video path
   contentImages?: string[]; // optional list of inline/floating emphasis images
 }
 
