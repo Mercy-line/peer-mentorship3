@@ -1,10 +1,10 @@
 import React from "react";
 import { TitleSlideData } from "@/types/slide";
 import { SlideProps } from "@/types/slide-props";
-import BackgroundMedia from "./BackgroundMedia";
-import SlideControls from "./SlideControls";
+import BackgroundMedia from "@/components/BackgroundMedia";
+import SlideControls from "@/components/SlideControls";
 
-export const TitleSlide: React.FC<SlideProps<TitleSlideData>> = ({
+export const Home: React.FC<SlideProps<TitleSlideData>> = ({
   slide,
   isActive,
   prevSlide,
@@ -34,11 +34,12 @@ export const TitleSlide: React.FC<SlideProps<TitleSlideData>> = ({
         </div>
         <div className="relative z-10 mt-8 md:mt-0 md:translate-y-[50px] p-6 rounded-xl bg-[#b45309] shadow-[0_20px_50px_rgba(120,53,15,0.35)] max-w-[400px] text-left transition-all duration-700">
           <p className="font-display font-medium text-[clamp(16px,1.2vw,20px)] italic leading-relaxed text-white">
-            "KamiLimu has made the lost girl find herself back"
+            &quot;KamiLimu has made the lost girl find herself back&quot;
           </p>
         </div>
       </div>
     </section>
   );
 };
-export default TitleSlide;
+
+export default Home;

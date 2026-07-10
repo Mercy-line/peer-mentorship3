@@ -3,16 +3,17 @@ import React from "react";
 import { slidesData } from "@/data/slides";
 import { useSlideDeck } from "@/hooks/useSlideDeck";
 import NavBar from "./NavBar";
-import Home from "./Home";
-import Think from "./Think";
-import ICT from "./ICT";
-import Jobs from "./Jobs";
-import Research from "./Research";
-import Scholarship from "./Scholarship";
-import PublicSpeaking from "./PublicSpeaking";
-import Design from "./Design";
-import Wrapped from "./Wrapped";
+import Home from "./pages/Home";
+import Think from "./pages/Think";
+import ICT from "./pages/ICT";
+import Jobs from "./pages/Jobs";
+import Research from "./pages/Research";
+import Scholarship from "./pages/Scholarship";
+import PublicSpeaking from "./pages/PublicSpeaking";
+import Design from "./pages/Design";
+import Wrapped from "./pages/Wrapped";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const PAGES: React.ComponentType<any>[] = [Home, Think, ICT, Jobs, Research, Scholarship, PublicSpeaking, Design, Wrapped];
 
 export const SlideDeck: React.FC = () => {

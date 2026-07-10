@@ -4,7 +4,10 @@ import { slidesData } from "@/data/slides";
 export function useSlideDeck() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mounted, setMounted] = useState(false);
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
 
   const scrollToSlide = useCallback((index: number) => {
     const target = Math.max(0, Math.min(index, slidesData.length - 1));
